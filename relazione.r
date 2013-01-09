@@ -12,4 +12,14 @@ ecog <- dati[dati$CDL == "ECONOMIA GEST. SERV. TURISTICI", ]
 mark <- dati[dati$CDL == "MARKETING E GEST. IMPRESE", ]
 stat <- dati[dati$CDL == "STAT. E INFORMATICA GEST. IMPRESE",]
 
+# Calcolo le medie di ogni colonna numerica di ogni tabella
 
+ammiMedie <- colMeans(ammi[,2:7]) 
+commMedie <- colMeans(comm[,2:7]) 
+consMedie <- colMeans(cons[,2:7]) 
+econMedie <- colMeans(econ[,2:7]) 
+ecoaMedie <- colMeans(ecoa[,2:7]) 
+ecofMedie <- colMeans(ecof[,2:7]) 
+ecogMedie <- colMeans(ecog[,2:7]) 
+markMedie <- colMeans(mark[,2:7]) 
+statMedie <- colMeans(stat[,2:7]) 
