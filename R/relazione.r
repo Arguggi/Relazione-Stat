@@ -1,5 +1,7 @@
 # Leggo i dati del file .csv
-dati <- read.csv("dati.csv", header=TRUE, sep=" ")
+dati <- read.csv("../dati.csv", header=TRUE, sep=" ")
+datiMedie <- colMeans(dati[,2:7])
+
 
 # Creo delle nuove tabelle divise per corso di laurea
 ammi <- dati[dati$CDL == "AMMINISTRAZIONE E CONTROLLO", ]
