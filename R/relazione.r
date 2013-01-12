@@ -1,27 +1,20 @@
 # Leggo i dati del file .csv
-dati <- read.csv("../dati.csv", header=TRUE, sep=" ")
-datiMedie <- colMeans(dati[,2:7])
+dati_letti <- read.csv("../dati.csv", header=TRUE, sep=" ")
 
+# Creo il data.frame
+dati <- as.data.frame(dati_letti)
 
-# Creo delle nuove tabelle divise per corso di laurea
-ammi <- dati[dati$CDL == "AMMINISTRAZIONE E CONTROLLO", ]
-comm <- dati[dati$CDL == "COMMERCIO ESTERO", ]
-cons <- dati[dati$CDL == "CONSULENZA AZ.LE E GIURIDICA", ]
-econ <- dati[dati$CDL == "ECONOMIA", ]
-ecoa <- dati[dati$CDL == "ECONOMIA AZIENDALE", ]
-ecof <- dati[dati$CDL == "ECONOMIA E FINANZA", ]
-ecog <- dati[dati$CDL == "ECONOMIA GEST. SERV. TURISTICI", ]
-mark <- dati[dati$CDL == "MARKETING E GEST. IMPRESE", ]
-stat <- dati[dati$CDL == "STAT. E INFORMATICA GEST. IMPRESE",]
+# Estraggo i nomi dei test
+nomi_test <- colnames(dati[,3:7])
 
-# Calcolo le medie di ogni colonna numerica di ogni tabella
+# Divido il data.frame per corso di laurea
+divisi <- split(dati,dati$CDL)
 
-ammiMedie <- colMeans(ammi[,2:7]) 
-commMedie <- colMeans(comm[,2:7]) 
-consMedie <- colMeans(cons[,2:7]) 
-econMedie <- colMeans(econ[,2:7]) 
-ecoaMedie <- colMeans(ecoa[,2:7]) 
-ecofMedie <- colMeans(ecof[,2:7]) 
-ecogMedie <- colMeans(ecog[,2:7]) 
-markMedie <- colMeans(mark[,2:7]) 
-statMedie <- colMeans(stat[,2:7]) 
+for (i in divisi) {
+  if(i$CDL[1] == "AMMINISTRAZIONE_E_CONTROLLO") {
+    divisi_medie <- data.frame(apply(i[,3:7],2,mean))
+  }
+  else {
+  }  
+} 
+
