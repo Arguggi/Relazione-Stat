@@ -18,7 +18,8 @@ crea_boxplot <- function(lista,nome_immagine,dimensioni,scala_y) {
   # ylab      -> Nome dell'asse y
   # ylim      -> Limiti della scala delle y
   # outline   -> FALSE non disegna gli outliers
-  boxplot(lista, main="Medie Globali", col="lightblue",axes=FALSE,  xlab="Test", ylab="Punteggio", ylim=scala_y,outline=FALSE)
+  boxplot(lista, main="TITOLO", col="lightblue",axes=FALSE,  xlab="Test", ylab="Punteggio", ylim=scala_y,outline=FALSE)
+  mtext("SOTTOTITOLO")
   box()
   
 # Aggiunge i nomi delle colonne sull'asse x e y
