@@ -14,5 +14,6 @@
     - `tutti_istogrammi(divisi,500,10)`
     - `tutti_boxplot(divisi,500,c(-5,100))`
   - Dovrebbe avervi creato tutti gli istogrammi e i boxplot
+
 ## Immagini ##
 Ho caricato degli [esempi](http://imgur.com/a/SfQd8).
