@@ -49,7 +49,7 @@ return()
   # scala_y       -> vettore con il minimo e il massimo numero che si vuole sulla scala delle y
 tutti_boxplot <- function(lista,dimensioni,scala_y) {
   for(i in lista) {
-    asd <- i[,3:7]
-    crea_boxplot(asd,i$CDL[1],dimensioni,scala_y)
+    sottoLista <- i[,3:7]
+    crea_boxplot(sottoLista,i$CDL[1],dimensioni,scala_y)
   }
 }
