@@ -7,3 +7,5 @@
 *.bmp
 prove
 *.docx
+*.swp
+*.~lock*
