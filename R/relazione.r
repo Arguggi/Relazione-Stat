@@ -21,3 +21,5 @@ for (i in divisi) {
 } 
 
 divisi_medie <- as.data.frame(divisi_medie)
+divisi_medie <- cbind(divisi_medie, levels(dati$CDL)) # Aggiunge colonna CDL
+names(divisi_medie)[6] <- "CDL" # Cambia nome della colonna in CDL
