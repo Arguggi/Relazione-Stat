@@ -1,8 +1,10 @@
 # Relazione Statistica #
+
 ## Come scaricare i file ##
   - Potete cliccare il bottone con scritto ZIP e la nuvoletta
   - Altrimenti installate [Git](http://git-scm.com/downloads), poi aprite un terminale e scrivete `git clone https://github.com/Arguggi/Relazione-Stat.git` e dovrebbe creavi una cartella con dentro i file.
     Per aggiornare i dati potete,usando sempre il terminale, scrivere e inviare `git pull` nella cartella che vi ha creato.
+
 ## Come creare le immagini ##
   - Aprite R e aggiungete la cartella `Relazione-Stat/R`
   - Scrivete 
