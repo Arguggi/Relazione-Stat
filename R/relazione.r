@@ -10,7 +10,7 @@ nomi_test <- colnames(dati[,3:7])
 # Divido il data.frame per corso di laurea
 divisi <- split(dati,dati$CDL)
 
-# Creo il data frame con le medie diviso per CDL
+# Creo la matrice con le medie divise per CDL
 for (lista in divisi) {
   if(lista$CDL[1] == "AMMINISTRAZIONE_E_CONTROLLO") {
     divisi_medie <- matrix(colMeans(lista[,3:7]),nrow=1)
