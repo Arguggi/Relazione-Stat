@@ -19,9 +19,9 @@ for (lista in divisi) {
     divisi_medie <- rbind(divisi_medie,colMeans(lista[,3:7]))
   }  
 } 
-
+divisi_medie <- rbind(divisi_medie,colMeans(dati[,3:7]))
 divisi_medie <- as.data.frame(divisi_medie)
-divisi_medie <- cbind(divisi_medie, levels(dati$CDL)) # Aggiunge colonna CDL
+divisi_medie <- cbind(divisi_medie,c(levels(dati$CDL),"TOTALE")) # Aggiunge colonna CDL
 names(divisi_medie)[6] <- "CDL" # Cambia nome della colonna in CDL
 
 #Equivalente di colMeans
