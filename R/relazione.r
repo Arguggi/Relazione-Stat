@@ -43,11 +43,12 @@ for (lista in divisi) {
   }
 }
 
+divisi_var <- rbind(divisi_var,colVAR(dati[,3:7])) # Aggiunge riga dei totali
 divisi_var <- as.data.frame(divisi_var)
-divisi_var <- cbind(divisi_var, levels(dati$CDL)) # Aggiunge colonna CDL
+divisi_var <- cbind(divisi_var,c(levels(dati$CDL),"TOTALE")) # Aggiunge colonna CDL
 names(divisi_var) <- names(dati)[3:8] # Cambia nome delle colonne
 
 # Creo la matrice con le variazioni standard
 divisi_dev <- sqrt(divisi_var[,1:5])
-divisi_dev <- cbind(divisi_dev, levels(dati$CDL)) # Aggiunge colonna CDL
+divisi_dev <- cbind(divisi_dev,c(levels(dati$CDL),"TOTALE")) # Aggiunge colonna CDL
 
