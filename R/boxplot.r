@@ -43,13 +43,15 @@ crea_boxplot <- function(lista,nome_immagine,dimensioni,scala_y) {
 return()
 }
 
+indiciBoxplot <- 3:8
+
 # tutti_boxplot
   # lista    -> lista di liste
   # dimensioni    -> dimensioni dell'immagine che si vuole creare
   # scala_y       -> vettore con il minimo e il massimo numero che si vuole sulla scala delle y
 tutti_boxplot <- function(lista,dimensioni,scala_y) {
   for(i in lista) {
-    sottoLista <- i[,3:7]
+    sottoLista <- i[,indiciBoxplot]
     crea_boxplot(sottoLista,i$CDL[1],dimensioni,scala_y)
   }
 }
