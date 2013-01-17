@@ -33,10 +33,12 @@ crea_istogramma <- function(lista,nome_immagine,dimensioni,x_divisione) {
 return()
 }
 
+indiciIstogramma <- 3:8
+
 tutti_istogramma <- function(lista,dimensioni,x_divisione){
   for(sottoLista in lista) { # Ciclo per le sottoliste
     nomiColonne <- names(sottoLista)
-    for(colonna in 3:7) {    # Ciclo per le singole colonne
+    for(colonna in indiciIstogramma) {    # Ciclo per le singole colonne
       nome <- paste(sottoLista$CDL[1],nomiColonne[colonna],sep="_")
       crea_istogramma(sottoLista[,colonna],nome,dimensioni,x_divisione)
     }
