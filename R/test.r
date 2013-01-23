@@ -1,22 +1,19 @@
+suddividi <- function(lista,punti) {
+  split(lista,cut(lista,punti))
+}
+
 # Test Logica-Matematica
-minf20 <- subset(dati,Matematica < 20)
-msup20 <- subset(dati,Matematica >= 20)
 
-linf11 <- subset(minf20,Logica <= 11)
-linf22 <- subset(minf20,Logica <= 22 & Logica > 11)
-linf34 <- subset(minf20,Logica <= 34 & Logica > 22)
+mateRange <- c(-5,19.99,34)
+logicaRange <- c(-5,11,22,34)
 
-mat0 <- c(length(linf11[,3]),length(linf22[,3]),length(linf34[,3]))
+# Divido i dati a seconda del voto in matematica e logica 
 
-lsup11 <- subset(msup20,Logica <= 11)
-lsup22 <- subset(msup20,Logica <= 22 & Logica > 11)
-lsup34 <- subset(msup20,Logica <= 34 & Logica > 22)
+logicaDivisi <- split(dati$Matematica,cut(dati$Logica,logicaRange))
 
-mat20 <- c(length(lsup11[,3]),length(lsup22[,3]),length(lsup34[,3]))
+test_mate <- sapply(logicaDivisi,suddividi,mateRange)
+test_mate <- t(matrix(sapply(test_mate,length),ncol=length(mateRange)))
 
-test_mate <- matrix(c(t(mat0),t(mat20)),ncol=2)
-
-test_mate <- as.data.frame(test_mate)
 colnames(test_mate) <- c("Mate<20","Mate>20")
 row.names(test_mate) <- c("Logica<11","11<Logica<22","Logica>22")
 
