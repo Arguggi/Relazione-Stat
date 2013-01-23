@@ -46,3 +46,37 @@ test_test <- matrix(c(t(testinf),t(testsup)),ncol=2)
 test_test <- as.data.frame(test_test)
 colnames(test_test) <- c("Test<60","Test>60")
 row.names(test_test) <- c("Voto<70","70<Voto<80","80<Voto<90","Voto>90")
+
+# Test Sesso-Test
+
+pernoTest <- 50
+
+maschi <- subset(dati,Genere == "M")
+femmine <- subset(dati, Genere == "F")
+
+minf70 <- subset(maschi,Voto <= 70)
+minf80 <- subset(maschi,Voto <= 80 & Voto > 70)
+minf90 <- subset(maschi,Voto <= 90 & Voto > 80)
+minf00 <- subset(maschi,Voto > 90)
+
+testm <- c(length(minf70[,3]),length(minf80[,3]),length(minf90[,3]),length(minf00[,3]))
+
+finf70 <- subset(femmine,Voto <= 70)
+finf80 <- subset(femmine,Voto <= 80 & Voto > 70)
+finf90 <- subset(femmine,Voto <= 90 & Voto > 80)
+finf00 <- subset(femmine,Voto > 90)
+
+testf <- c(length(finf70[,3]),length(finf80[,3]),length(finf90[,3]),length(finf00[,3]))
+
+test_genere <- matrix(c(t(testm),t(testf)),ncol=2)
+
+test_genere <- as.data.frame(test_genere)
+colnames(test_genere) <- c("Maschi","Femmine")
+row.names(test_genere) <- c("Voto<70","70<Voto<80","80<Voto<90","Voto>90")
+
+# Test Sesso-Medie
+
+medie_mas <- colMeans(dati[dati$Genere == "M",][,3:8])
+medie_fem <- colMeans(dati[dati$Genere == "F",][,3:8])
+
+test_medie <- matrix(c(t(medie_mas),t(medie_fem)),ncol=2)
