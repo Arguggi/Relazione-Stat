@@ -12,7 +12,11 @@ logicaRange <- c(-5,11,22,34)
 logicaDivisi <- split(dati$Matematica,cut(dati$Logica,logicaRange))
 
 test_mate <- sapply(logicaDivisi,suddividi,mateRange)
-test_mate <- t(matrix(sapply(test_mate,length),ncol=length(mateRange)))
+# sapply suddividi prende il vettore fatto da x livelli ed aggiunge
+# sotto ogni numero n colonne, dove n sono le divisioni che fa secondo il 2
+# parametro di suddividi (se il vettore è lungo 3, fa 2 divisioni).
+# Quindi servono x-1 colonne, poi la matrice viene trasposta per estetica.
+test_mate <- t(matrix(sapply(test_mate,length),ncol=length(logicaRange)-1))
 
 colnames(test_mate) <- c("Mate<20","Mate>20")
 row.names(test_mate) <- c("Logica<11","11<Logica<22","Logica>22")
@@ -25,14 +29,14 @@ votoRange <- c(50,70,80,90,100)
 votoDivisi <- split(dati$Test,cut(dati$Voto,votoRange))
 
 test_test <- sapply(votoDivisi,suddividi,testRange)
-test_test <- t(matrix(sapply(test_test,length),ncol=length(testRange)+1))
+
+#vedi sopra test_mate
+test_test <- t(matrix(sapply(test_test,length),ncol=length(votoRange)-1))
 
 colnames(test_test) <- c("Test<60","Test>60")
 row.names(test_test) <- c("Voto<70","70<Voto<80","80<Voto<90","Voto>90")
 
-# Test Sesso-Test
-
-pernoTest <- 50
+# Test Sesso-Voto
 
 maschi <- subset(dati,Genere == "M")
 femmine <- subset(dati, Genere == "F")
