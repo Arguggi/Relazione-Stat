@@ -18,7 +18,7 @@ test_mate <- matrix(c(t(mat0),t(mat20)),ncol=2)
 
 test_mate <- as.data.frame(test_mate)
 colnames(test_mate) <- c("Mate<20","Mate>20")
-row.names(test_mate) <- c("Logica<11","11<Logica<22","22<Logica")
+row.names(test_mate) <- c("Logica<11","11<Logica<22","Logica>22")
 
 # Test Diploma-Test
 
