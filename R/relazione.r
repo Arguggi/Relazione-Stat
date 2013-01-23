@@ -10,12 +10,11 @@ maturita <- function(colonne) {
   return(round((colonne[,2]-0.4*colonne[,1])/0.6))
 }
 
-dati <- cbind(dati,maturita(dati[,6:7]))
-names(dati)[9] <- "Voto"
+dati$Voto <- maturita(dati[,6:7])
 dati <- dati[,c(names(dati)[1:7],"Voto","CDL")]
 
 # Estraggo i nomi dei test
-nomi_test <- c(colnames(dati[,3:7]),"Voto")
+nomi_test <- colnames(dati)[3:8]
 
 # Divido il data.frame per corso di laurea
 divisi <- split(dati,dati$CDL)
