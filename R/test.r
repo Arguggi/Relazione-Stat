@@ -19,28 +19,14 @@ row.names(test_mate) <- c("Logica<11","11<Logica<22","Logica>22")
 
 # Test Diploma-Test
 
-pernoTest <- 50
+testRange <- c(-10,50,100)
+votoRange <- c(50,70,80,90,100)
 
-tinf <- subset(dati,Test < pernoTest)
-tsup <- subset(dati,Test >= pernoTest)
+votoDivisi <- split(dati$Test,cut(dati$Voto,votoRange))
 
-dinf70 <- subset(tinf,Voto <= 70)
-dinf80 <- subset(tinf,Voto <= 80 & Voto > 70)
-dinf90 <- subset(tinf,Voto <= 90 & Voto > 80)
-dinf00 <- subset(tinf,Voto > 90)
+test_test <- sapply(votoDivisi,suddividi,testRange)
+test_test <- t(matrix(sapply(test_test,length),ncol=length(testRange)+1))
 
-testinf <- c(length(dinf70[,3]),length(dinf80[,3]),length(dinf90[,3]),length(dinf00[,3]))
-
-dsup70 <- subset(tsup,Voto <= 70)
-dsup80 <- subset(tsup,Voto <= 80 & Voto > 70)
-dsup90 <- subset(tsup,Voto <= 90 & Voto > 80)
-dsup00 <- subset(tsup,Voto > 90)
-
-testsup <- c(length(dsup70[,3]),length(dsup80[,3]),length(dsup90[,3]),length(dsup00[,3]))
-
-test_test <- matrix(c(t(testinf),t(testsup)),ncol=2)
-
-test_test <- as.data.frame(test_test)
 colnames(test_test) <- c("Test<60","Test>60")
 row.names(test_test) <- c("Voto<70","70<Voto<80","80<Voto<90","Voto>90")
 
