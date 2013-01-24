@@ -23,7 +23,7 @@ row.names(test_mate) <- c("Logica<11","11<Logica<22","Logica>22")
 
 # Test Diploma-Test
 
-testRange <- c(-10,50,100)
+testRange <- c(-10,65,100)
 votoRange <- c(50,70,80,90,100)
 
 votoDivisi <- split(dati$Test,cut(dati$Voto,votoRange))
@@ -67,3 +67,14 @@ medie_mas <- colMeans(dati[dati$Genere == "M",][,3:8])
 medie_fem <- colMeans(dati[dati$Genere == "F",][,3:8])
 
 test_medie <- matrix(c(t(medie_mas),t(medie_fem)),ncol=2)
+
+# Test Voto-CDL
+
+testDivisi <- split(dati$Totale,dati$CDL)
+
+test_cdl <- sapply(testDivisi,suddividi,testRange)
+
+test_cdl <- matrix(sapply(test_cdl,length),ncol=length(levels(dati$CDL)))
+
+colnames(test_cdl) <- levels(dati$CDL)
+row.names(test_cdl) <- c("Test<65","Test>65")
