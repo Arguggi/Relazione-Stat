@@ -6,6 +6,7 @@
 *.tiff
 *.bmp
 prove
+Latex
 *.docx
 *.swp
 *.~lock*
