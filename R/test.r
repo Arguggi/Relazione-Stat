@@ -2,10 +2,20 @@ suddividi <- function(lista,punti) {
   split(lista,cut(lista,punti))
 }
 
+intervallo <- function(nome,intervalli) {
+  nomi <- vector()
+  for(i in 1:(length(intervalli)-1)) {
+    nomi <- c(nomi,paste(intervalli[i],"<",nome,"<",intervalli[i+1]))
+  }
+  return(nomi)
+}
+  
+
 # Test Logica-Matematica
 
 mateRange <- c(-5,19.99,34)
-logicaRange <- c(-5,11,22,34)
+logicaRange <- c(-5,19.99,34)
+#logicaRange <- c(-5,11,22,34)
 
 # Divido i dati a seconda del voto in matematica e logica 
 
@@ -18,8 +28,8 @@ test_mate <- sapply(logicaDivisi,suddividi,mateRange)
 # Quindi servono x-1 colonne, poi la matrice viene trasposta per estetica.
 test_mate <- t(matrix(sapply(test_mate,length),ncol=length(logicaRange)-1))
 
-colnames(test_mate) <- c("Mate<20","Mate>20")
-row.names(test_mate) <- c("Logica<11","11<Logica<22","Logica>22")
+colnames(test_mate) <- intervallo("Mate",mateRange)
+row.names(test_mate) <- intervallo("Logica",logicaRange)
 
 # Test Diploma-Test
 
@@ -33,8 +43,8 @@ test_test <- sapply(votoDivisi,suddividi,testRange)
 #vedi sopra test_mate
 test_test <- t(matrix(sapply(test_test,length),ncol=length(votoRange)-1))
 
-colnames(test_test) <- c("Test<60","Test>60")
-row.names(test_test) <- c("Voto<70","70<Voto<80","80<Voto<90","Voto>90")
+colnames(test_test) <- intervallo("Test",testRange)
+row.names(test_test) <- intervallo("Voto",votoRange)
 
 # Test Sesso-Voto
 
@@ -59,7 +69,7 @@ test_genere <- matrix(c(t(testm),t(testf)),ncol=2)
 
 test_genere <- as.data.frame(test_genere)
 colnames(test_genere) <- c("Maschi","Femmine")
-row.names(test_genere) <- c("Voto<70","70<Voto<80","80<Voto<90","Voto>90")
+row.names(test_genere) <- intervallo("Voto",votoRange)
 
 # Test Sesso-Medie
 
@@ -77,4 +87,4 @@ test_cdl <- sapply(testDivisi,suddividi,testRange)
 test_cdl <- matrix(sapply(test_cdl,length),ncol=length(levels(dati$CDL)))
 
 colnames(test_cdl) <- levels(dati$CDL)
-row.names(test_cdl) <- c("Test<65","Test>65")
+row.names(test_cdl) <- intervallo("Test",testRange)
