@@ -1,7 +1,9 @@
+# Divide la lista usando i punti come intervalli
 suddividi <- function(lista,punti) {
   split(lista,cut(lista,punti))
 }
 
+# Crea un lista di stringhe: intervalli[i]<nome<intervalli[i+1]
 intervallo <- function(nome,intervalli) {
   nomi <- vector()
   for(i in 1:(length(intervalli)-1)) {
@@ -15,7 +17,6 @@ intervallo <- function(nome,intervalli) {
 
 mateRange <- c(-5,19.99,34)
 logicaRange <- c(-5,19.99,34)
-#logicaRange <- c(-5,11,22,34)
 
 # Divido i dati a seconda del voto in matematica e logica 
 
@@ -34,10 +35,9 @@ row.names(test_mate) <- intervallo("Logica",logicaRange)
 # Test Diploma-Test
 
 testRange <- c(-10,65,100)
-votoRange <- c(50,70,80,90,100)
+votoRange <- c(50,69.99,79.99,89.99,110)
 
 votoDivisi <- split(dati$Test,cut(dati$Voto,votoRange))
-
 test_test <- sapply(votoDivisi,suddividi,testRange)
 
 #vedi sopra test_mate
