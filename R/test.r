@@ -35,11 +35,10 @@ row.names(test_mate) <- intervallo("Logica",logicaRange)
 # Test Diploma-Test
 
 testRange <- c(-10,65,100)
-votoRange <- c(50,69.99,79.99,89.99,110)
+votoRange <- c(50,69.5,79.5,89.5,100.5)
 
 votoDivisi <- split(dati$Test,cut(dati$Voto,votoRange))
 test_test <- sapply(votoDivisi,suddividi,testRange)
-
 #vedi sopra test_mate
 test_test <- t(matrix(sapply(test_test,length),ncol=length(votoRange)-1))
 
@@ -48,27 +47,11 @@ row.names(test_test) <- intervallo("Voto",votoRange)
 
 # Test Sesso-Voto
 
-maschi <- subset(dati,Genere == "M")
-femmine <- subset(dati, Genere == "F")
+votoDivisi2 <- split(dati$Voto,dati$Genere)
+test_genere2 <- sapply(votoDivisi2,suddividi,votoRange)
+test_genere <- matrix(sapply(test_genere2,length),ncol=2)
 
-minf70 <- subset(maschi,Voto <= 70)
-minf80 <- subset(maschi,Voto <= 80 & Voto > 70)
-minf90 <- subset(maschi,Voto <= 90 & Voto > 80)
-minf00 <- subset(maschi,Voto > 90)
-
-testm <- c(length(minf70[,3]),length(minf80[,3]),length(minf90[,3]),length(minf00[,3]))
-
-finf70 <- subset(femmine,Voto <= 70)
-finf80 <- subset(femmine,Voto <= 80 & Voto > 70)
-finf90 <- subset(femmine,Voto <= 90 & Voto > 80)
-finf00 <- subset(femmine,Voto > 90)
-
-testf <- c(length(finf70[,3]),length(finf80[,3]),length(finf90[,3]),length(finf00[,3]))
-
-test_genere <- matrix(c(t(testm),t(testf)),ncol=2)
-
-test_genere <- as.data.frame(test_genere)
-colnames(test_genere) <- c("Maschi","Femmine")
+colnames(test_genere) <- c("Femmine","Maschi")
 row.names(test_genere) <- intervallo("Voto",votoRange)
 
 # Test Sesso-Medie
