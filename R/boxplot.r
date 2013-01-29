@@ -27,7 +27,7 @@ crea_boxplot <- function(lista,nome_immagine,dimensioni,scala_y) {
   # at     -> Indica dove mettere i nomi
   # labels -> Indica quali nomi mettere 
   numeri_x <- seq(1,length(lista),1)
-  axis(1, at=numeri_x, labels=nomi_test)
+  axis(1, at=numeri_x, labels=nomiTest)
   numeri_y <- seq(min(scala_y),max(scala_y),5)
   axis(2, at=numeri_y, labels=numeri_y, las=2)
 

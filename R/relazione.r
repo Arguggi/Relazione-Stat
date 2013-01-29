@@ -22,6 +22,7 @@ dati <- dati[,c(names(dati)[1:7],"Voto","CDL")]
 divisi <- split(dati,dati$CDL)
 
 indiciTest <- 3:8
+nomiTest <- names(dati)[indiciTest]
 
 # Creo la matrice con le medie divise per CDL
   # lapply estrae dalla lista di data.frame le colonne dei test
