@@ -1,3 +1,5 @@
+library(ggplot2)
+
 # Leggo i dati del file .csv
 dati_letti <- read.csv("../dati.csv", header=TRUE, sep=" ")
 # Creo il data.frame
@@ -46,3 +48,13 @@ divisi_var <- cbind(divisi_var,c(levels(dati$CDL),"TOTALE")) # Aggiunge colonna 
 # Creo la matrice con le variazioni standard
 divisi_dev <- sqrt(divisi_var[,1:6])
 divisi_dev <- cbind(divisi_dev,c(levels(dati$CDL),"TOTALE")) # Aggiunge colonna CDL
+
+tutti_grafici <- function(dimensioni) {
+  source("istogramma.r")
+  source("boxplot.r")
+  dati_istogramma(dimensioni)
+  divisi_istogramma(dimensioni)
+  dati_boxplot(dimensioni)
+  divisi_boxplot(dimensioni)
+}
+
