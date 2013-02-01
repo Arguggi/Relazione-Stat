@@ -18,9 +18,11 @@ dati_boxplot <- function(dimensioni) {
   }
 }
 
-divisi_boxplot <- function(colonna,dimensioni) {
+divisi_boxplot <- function(dimensioni) {
   for(i in divisi) {
     nome <- i[1,9]
-    crea_boxplot_tutti(i,colonna,dimensioni,nome)
+    for(colonna in names(i)[3:8]) {
+      crea_boxplot_tutti(i,colonna,dimensioni,nome)
+    }
   }
 }
