@@ -1,57 +1,26 @@
-# crea_boxplot
-  # lista         -> Dataframe di cui si vuole fare il boxplot
-  # nome_immagine -> nome da dare all'immagine
-  # dimensioni    -> dimensioni in px dell'immagine che si vuole creare
-  # scala_y       -> vettore con il minimo e il massimo numero che si vuole sulla scala delle y
-crea_boxplot <- function(lista,nome_immagine,dimensioni,scala_y) {
+crea_boxplot_tutti <- function(dataframe,colonna,dimensioni,nome) {
 
-# Estrae il nome della lista e aggiunge .tiff
-  nome_immagine <- paste(nome_immagine, ".tiff",sep="")
-  tiff(nome_immagine,width=dimensioni, height=dimensioni, units="px", compression="none")
+  nome_immagine <- paste(nome,"-",colonna,"-box.png",sep="")
+  png(nome_immagine,width=dimensioni, height=dimensioni, units="px")
 
-# Crea il grafico delle medie totali:
-  # dati      -> Usa i dati contenuti in datiMedie
-  # main      -> Titolo del grafico
-  # col       -> Colore dei boxplot
-  # axes      -> Disegna gli assi se è TRUE
-  # xlab      -> Nome dell'asse x
-  # ylab      -> Nome dell'asse y
-  # ylim      -> Limiti della scala delle y
-  # outline   -> FALSE non disegna gli outliers
-  boxplot(lista, main="TITOLO", col="lightblue",axes=FALSE,  xlab="Test", ylab="Punteggio", ylim=scala_y,outline=FALSE)
-  mtext("SOTTOTITOLO")
-  box()
-  
-# Aggiunge i nomi delle colonne sull'asse x e y
-  # 1      -> asse x (2 è l'asse y)
-  # at     -> Indica dove mettere i nomi
-  # labels -> Indica quali nomi mettere 
-  numeri_x <- seq(1,length(lista),1)
-  axis(1, at=numeri_x, labels=nomiTest)
-  numeri_y <- seq(min(scala_y),max(scala_y),5)
-  axis(2, at=numeri_y, labels=numeri_y, las=2)
+  grafico <- ggplot(dataframe,aes_string(y=colonna,x="Genere"),geom="boxplot")
+  grafico <- grafico + geom_boxplot(aes(fill=Genere))
+  grafico <- grafico + xlab("Sesso") + scale_fill_discrete(name="Sesso")
 
-# Aggiunge linee al grafice
-  # h    -> linee orizzontali, (v per verticali)
-  # col  -> colore delle linee
-  # lty  -> tipo di linea
-  # lwd  -> larghezza della linea rispetto a quella di default
-  abline(h=numeri_y, col=1, lty=2, lwd=0.5)
-
-# Salva l'immagine
+  print(grafico)
   dev.off()
 return()
 }
 
-indiciBoxplot <- 3:8
+dati_boxplot <- function(dimensioni) {
+  for(i in names(dati[,3:8])) {
+    crea_boxplot_tutti(dati,i,dimensioni,"dati")
+  }
+}
 
-# tutti_boxplot
-  # lista    -> lista di liste
-  # dimensioni    -> dimensioni dell'immagine che si vuole creare
-  # scala_y       -> vettore con il minimo e il massimo numero che si vuole sulla scala delle y
-tutti_boxplot <- function(lista,dimensioni,scala_y) {
-  for(i in lista) {
-    sottoLista <- i[,indiciBoxplot]
-    crea_boxplot(sottoLista,i$CDL[1],dimensioni,scala_y)
+divisi_boxplot <- function(colonna,dimensioni) {
+  for(i in divisi) {
+    nome <- i[1,9]
+    crea_boxplot_tutti(i,colonna,dimensioni,nome)
   }
 }
