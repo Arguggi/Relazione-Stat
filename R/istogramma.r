@@ -19,9 +19,11 @@ dati_istogramma <- function(dimensioni) {
   }
 }
 
-divisi_istogramma <- function(colonna,dimensioni) {
+divisi_istogramma <- function(dimensioni) {
   for(i in divisi) {
     nome <- i[1,9]
-    crea_istogramma(i,colonna,dimensioni,nome)
+    for(colonna in names(i)[3:8]) {
+      crea_istogramma(i,colonna,dimensioni,nome)
+    }
   }
 }
