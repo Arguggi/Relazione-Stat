@@ -1,6 +1,7 @@
 crea_istogramma <- function(dataframe,colonna,dimensioni,nome) {
 
-  nome_immagine <- paste(nome,"-",colonna,"-ist.pdf",sep="")
+  percorso <- "../Immagini/"
+  nome_immagine <- paste(percorso,nome,"-",colonna,"-ist.pdf",sep="")
   pdf(nome_immagine)
 
   grafico <- ggplot(dataframe,aes_string(x=colonna),geom="histogram")
