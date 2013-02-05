@@ -1,6 +1,7 @@
 crea_boxplot_tutti <- function(dataframe,colonna,dimensioni,nome) {
 
-  nome_immagine <- paste(nome,"-",colonna,"-box.png",sep="")
+  percorso <- "../Immagini/"
+  nome_immagine <- paste(percorso,nome,"-",colonna,"-box.png",sep="")
   png(nome_immagine,width=dimensioni, height=dimensioni, units="px")
 
   grafico <- ggplot(dataframe,aes_string(y=colonna,x="Genere"),geom="boxplot")
