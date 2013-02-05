@@ -5,7 +5,7 @@ crea_istogramma <- function(dataframe,colonna,dimensioni,nome) {
 
   grafico <- ggplot(dataframe,aes_string(x=colonna),geom="histogram")
   grafico <- grafico + geom_histogram(fill="steelblue",colour="black",binwidth=1)
-  grafico <- grafico + geom_density(aes(y=..count..),adjust=1,colour="red")
+  #grafico <- grafico + geom_density(aes(y=..count..),adjust=1,colour="red")
   grafico <- grafico + xlab("Voti") + ylab("Frequenza")
 
   print(grafico)
