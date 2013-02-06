@@ -1,13 +1,14 @@
 crea_istogramma <- function(dataframe,colonna,dimensioni,nome) {
 
   percorso <- "../Immagini/"
-  nome_immagine <- paste(percorso,nome,"-",colonna,"-ist.png",sep="")
-  png(nome_immagine,width=dimensioni, height=dimensioni, units="px")
+  nome_immagine <- paste(percorso,nome,"-",colonna,"-ist.pdf",sep="")
+  pdf(nome_immagine)
+>>>>>>> pdf-latex
 
   grafico <- ggplot(dataframe,aes_string(x=colonna),geom="histogram")
-  grafico <- grafico + geom_histogram(fill="steelblue",colour="black",binwidth=1)
-  grafico <- grafico + geom_density(aes(y=..count..),adjust=1,colour="red")
-  grafico <- grafico + xlab("Voti") + ylab("Frequenza")
+  grafico <- grafico + geom_histogram(aes(fill=..count..)) + scale_fill_gradient("Osservazioni")
+  #grafico <- grafico + geom_density(aes(y=..count..),adjust=1,colour="red")
+  grafico <- grafico + xlab("Voti") + ylab("Osservazioni")
 
   print(grafico)
   dev.off()

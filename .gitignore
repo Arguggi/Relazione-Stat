@@ -6,9 +6,14 @@
 *.tiff
 *.bmp
 prove
-Latex
 *.docx
 *.swp
 *.~lock*
 *.txt
 tags
+Immagini
+*.fls
+*.out
+*.log
+*.fdb_latexmk
+*.aux

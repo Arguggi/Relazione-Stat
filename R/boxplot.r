@@ -1,8 +1,8 @@
 crea_boxplot_tutti <- function(dataframe,colonna,dimensioni,nome) {
-
+ 
   percorso <- "../Immagini/"
-  nome_immagine <- paste(percorso,nome,"-",colonna,"-box.png",sep="")
-  png(nome_immagine,width=dimensioni, height=dimensioni, units="px")
+  nome_immagine <- paste(percorso,nome,"-",colonna,"-box.pdf",sep="")
+  pdf(nome_immagine)
 
   grafico <- ggplot(dataframe,aes_string(y=colonna,x="Genere"),geom="boxplot")
   grafico <- grafico + geom_boxplot(aes(fill=Genere))

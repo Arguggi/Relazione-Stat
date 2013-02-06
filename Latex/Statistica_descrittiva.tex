@@ -1,0 +1,217 @@
+\section{Statistica Descrittiva}
+
+In questa prima parte ci occupiamo di analizzare i dati che abbiamo, effettuando alcuni calcoli significativi per comprendere le caratteristiche principali che si sono riscontrate nel test.
+
+Considereremo dapprima le tre sezioni del test (Matematica, Logica e Italiano), successivamente il risultato totale ottenuto da ciascuno studente come somma dei voti parziali, infine il voto definitivo ottenuto, che è dato dall’equazione:
+\[
+Voto_{test} = 0.4 * Risultato_{tot} + 0.6 * Voto_{diploma}
+\]
+
+Per ciascuna di queste voci si conoscono tutti i 1576 voti ottenuti da ciascuno
+studente, perciò ne calcoleremo la media campionaria, per avere un’idea del
+risultato generalmente ottenuto, la varianza campionaria, per capire di quanto i
+valori mediamente si discostino da tale valore, e la deviazione standard
+campionaria.
+
+Dopo aver rilevato questi valori numerici riguardo al campione, si procederà a una
+rappresentazione grafica del risultato mediante istogrammi e boxplot.
+
+Nel primo grafico verranno rappresentati sulle ascisse i voti, da 0 al valore massimo (33,33 per le sezioni del test, 100 per gli altri due dati) divisi in sottogruppi.
+A ogni sottogruppo corrisponde una colonna che raggiunge in altezza (asse ordinate) 
+  il numero corrispondente agli elementi di quel gruppo, cioè il numero di quanti hanno
+ totalizzato un voto compreso fra gli estremi del gruppo.
+Ci aspettiamo un picco presso la colonna contenente il valore della media campionaria e una distribuzione decrescente ai lati del grafico.
+
+Nel boxplot, infine, si ottiene una rappresentazione grafica che descrive la dispersione del campione mediante indici di dispersione e posizione. La popolazione viene divisa in 4 zone ugualmente “popolate”, grazie a dei valori divisori detti quartili. Nel boxplot si osserva un rettangolo centrale, delimitato dal primo e dal terzo quartile (q1/4 e q3/4), a sua volta diviso internamente da una linea detta mediana, corrispondente al quartile centrale q1/2. La maggior parte dei valori sono addensati qui dentro, attorno quindi al valore della media campionaria. Esternamente ci sono dei segmenti che coprono zone di ampiezza massima 1,5 x Spazio interquartile (spazio fra q1/4 e q3/4) l’una, dedicate ai valori che si discostano dall’accumulazione centrale. Esternamente ci possono essere degli outliers, ossia dei punti così dispersi da essere considerati ininfluenti nell’analisi che si sta eseguendo. 
+
+\clearpage
+\subsection{Matematica}
+
+Iniziamo con lo studio dei dati riguardanti il voto di ogni studente nella
+sezione di matematica.
+
+\subsubsection{Media Campionaria}
+
+La media campionaria \(x_{n}^{*}\) si ottiene sommando tutti i voti in matematica
+delle persone sotto test e dividendo il risultato per n, cioè il numero totale
+dei voti (nel nostro caso 1576): 
+\[
+x_{n}^{*} = \frac{\sum_{i=1}^{n} x_{i}}{n} = 18.65
+\]
+
+Considerando che il voto massimo della sezione è 33,33 e che il 60\% -soglia
+genericamente utilizzata come indicatore di un livello di “sufficienza”- è 20,
+possiamo concludere che mediamente il risultato in matematica è
+insufficiente. In ogni caso questo, per dinamica del test in
+oggetto, non influisce sul superamento o meno di quello: ciò che
+conta è il voto finale, comprendente anche l’influenza del voto di
+diploma.
+
+\subsubsection{Varianza Campionaria}
+
+Nella varianza campionaria consideriamo quanto in generale i singoli valori si
+discostino dalla media campionaria, andando a sommare gli scarti quadratici,
+ossia le differenze \((x_n^* - x_i)^2\) e dividendoli per il numero di gradi di
+libertà \(n-1\).
+
+\[
+s_n^2 = \frac{1}{n-1} \sum_{i=1}^{n}(x_n^* - x_i)^2 = 44.83
+\]
+
+\subsubsection{Deviazione Standard Campionaria}
+
+È la radice quadrata della varianza campionaria:
+
+\[
+s_n = \sqrt{s_n^2} = 6.69
+\]
+\clearpage
+\thispagestyle{empty}
+\newgeometry{margin=1cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+  \(x_{n}^{*}\) & \(s_n^2\) & \(s_n\) \\
+  \hline
+  18.65 & 44.83 & 6.69 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Istogramma}
+\begin{figure}[!h]
+  \makebox[\textwidth]{%
+  \includegraphics[scale=0.57]{dati-Matematica-ist}}
+  \caption{Matematica}
+\end{figure}
+
+\subsubsection{Boxplot}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.57]{dati-Matematica-box}
+  \caption{Matematica}
+\end{figure}
+\restoregeometry
+\clearpage
+
+\thispagestyle{empty} %Inizio Logica
+\newgeometry{margin=1cm}
+\subsection{Logica}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+  \(x_{n}^{*}\) & \(s_n^2\) & \(s_n\) \\
+  \hline
+  17.51 & 43.02 & 6.55 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Istogramma}
+\begin{figure}[!h]
+  \makebox[\textwidth]{%
+  \includegraphics[scale=0.57]{dati-Logica-ist}}
+  \caption{Logica}
+\end{figure}
+
+\subsubsection{Boxplot}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.57]{dati-Logica-box}
+  \caption{Logica}
+\end{figure}
+\restoregeometry
+\clearpage
+
+\thispagestyle{empty} %Inizio Italiano
+\newgeometry{margin=1cm}
+\subsection{Italiano}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+  \(x_{n}^{*}\) & \(s_n^2\) & \(s_n\) \\
+  \hline
+  14.65 & 42.81 & 6.54 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Istogramma}
+\begin{figure}[!h]
+  \makebox[\textwidth]{%
+  \includegraphics[scale=0.57]{dati-Italiano-ist}}
+  \caption{Italiano}
+\end{figure}
+
+\subsubsection{Boxplot}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.57]{dati-Italiano-box}
+  \caption{Italiano}
+\end{figure}
+\restoregeometry
+\clearpage
+
+\thispagestyle{empty} %Inizio risultato test
+\newgeometry{margin=1cm}
+\subsection{Risultato del Test}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+  \(x_{n}^{*}\) & \(s_n^2\) & \(s_n\) \\
+  \hline
+  50.82 & 243.53 & 15.60 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Istogramma}
+\begin{figure}[!h]
+  \makebox[\textwidth]{%
+  \includegraphics[scale=0.57]{dati-Test-ist}}
+  \caption{Test}
+\end{figure}
+
+\subsubsection{Boxplot}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.57]{dati-Test-box}
+  \caption{Test}
+\end{figure}
+\restoregeometry
+\clearpage
+
+\thispagestyle{empty} %Inizio risultato finale
+\newgeometry{margin=1cm}
+\subsection{Voto Finale}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+  \(x_{n}^{*}\) & \(s_n^2\) & \(s_n\) \\
+  \hline
+ 67.60 & 121.41 & 11.01 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Istogramma}
+\begin{figure}[!h]
+  \makebox[\textwidth]{%
+  \includegraphics[scale=0.57]{dati-Totale-ist}}
+  \caption{Totale}
+\end{figure}
+
+\subsubsection{Boxplot}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.57]{dati-Totale-box}
+  \caption{Totale}
+\end{figure}
+\restoregeometry
+\clearpage
+
