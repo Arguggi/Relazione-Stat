@@ -22,8 +22,9 @@ A ogni sottogruppo corrisponde una colonna che raggiunge in altezza (asse ordina
  totalizzato un voto compreso fra gli estremi del gruppo.
 Ci aspettiamo un picco presso la colonna contenente il valore della media campionaria e una distribuzione decrescente ai lati del grafico.
 
-Nel boxplot, infine, si ottiene una rappresentazione grafica che descrive la dispersione del campione mediante indici di dispersione e posizione. La popolazione viene divisa in 4 zone ugualmente “popolate”, grazie a dei valori divisori detti quartili. Nel boxplot si osserva un rettangolo centrale, delimitato dal primo e dal terzo quartile (q1/4 e q3/4), a sua volta diviso internamente da una linea detta mediana, corrispondente al quartile centrale q1/2. La maggior parte dei valori sono addensati qui dentro, attorno quindi al valore della media campionaria. Esternamente ci sono dei segmenti che coprono zone di ampiezza massima 1,5 x Spazio interquartile (spazio fra q1/4 e q3/4) l’una, dedicate ai valori che si discostano dall’accumulazione centrale. Esternamente ci possono essere degli outliers, ossia dei punti così dispersi da essere considerati ininfluenti nell’analisi che si sta eseguendo. 
+Nel boxplot, infine, si ottiene una rappresentazione grafica che descrive la dispersione del campione mediante indici di dispersione e posizione. La popolazione viene divisa in 4 zone ugualmente “popolate”, grazie a dei valori divisori detti quartili. Nel boxplot si osserva un rettangolo centrale, delimitato dal primo e dal terzo quartile ($q_{1/4}$ e $q_{3/4}$), a sua volta diviso internamente da una linea detta mediana, corrispondente al quartile centrale $q_{1/2}$. La maggior parte dei valori sono addensati qui dentro, attorno quindi al valore della media campionaria. Esternamente ci sono dei segmenti che coprono zone di ampiezza massima $1,5* $Spazio interquartile (spazio fra $q_{1/4}$ e $q_{3/4}$) l’una, dedicate ai valori che si discostano dall’accumulazione centrale. Esternamente ci possono essere degli outliers, ossia dei punti così dispersi da essere considerati ininfluenti nell’analisi che si sta eseguendo. 
 
+In particolare, ogni boxplot è “doppio”: per eseguirlo abbiamo diviso ogni campione via via analizzato fra Maschi e Femmine. Così, per ogni voto, sono visibili in parallelo (e direttamente confrontabili) i due rettangoli di colorazione diversa. In questo modo salta subito all’occhio quale fra i due sessi ha eseguito meglio la prova in questione.
 \clearpage
 \subsection{Matematica}
 
@@ -85,20 +86,21 @@ s_n = \sqrt{s_n^2} = 6.69
   \includegraphics[scale=0.57]{dati-Matematica-ist}}
   \caption{Matematica}
 \end{figure}
-
+Notiamo che, come ci eravamo aspettati, la maggior parte dei valori si addensano intorno al valor medio, mentre procedendo verso gli estremi (dove i voti diventano molto alti o estremamente bassi) l’altezza delle colonne diminuisce, a testimonianza del fatto che il numero di studenti che hanno totalizzato quei risultati si riduce.
 \subsubsection{Boxplot}
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.57]{dati-Matematica-box}
   \caption{Matematica}
 \end{figure}
+Anche nel boxplot osserviamo come l’addensamento dei valori avvenga vicino al valor medio, intorno al voto 20. A quanto pare, gli studenti maschi hanno eseguito meglio la parte di matematica rispetto alle ragazze.
 \restoregeometry
 \clearpage
 
 \thispagestyle{empty} %Inizio Logica
 \newgeometry{margin=1cm}
 \subsection{Logica}
-
+Ripetiamo ora per Logica e poi per Italiano le osservazioni fatte per la precedente sezione, con i seguenti risultati:
 \begin{center}
 \begin{tabular}{|c|c|c|}
   \hline
@@ -108,7 +110,7 @@ s_n = \sqrt{s_n^2} = 6.69
   \hline
 \end{tabular}
 \end{center}
-
+Notiamo in Logica una media leggermente inferiore a quella di Matematica; la varianza è anch’essa più piccola anche se di poco.
 \subsubsection{Istogramma}
 \begin{figure}[!h]
   \makebox[\textwidth]{%
@@ -138,7 +140,7 @@ s_n = \sqrt{s_n^2} = 6.69
   \hline
 \end{tabular}
 \end{center}
-
+In Italiano notiamo la media peggiore di tutte, sensibilmente minore delle altre due sezioni. Varianza e deviazione standard campionaria sono molto prossime a quelle in Logica.
 \subsubsection{Istogramma}
 \begin{figure}[!h]
   \makebox[\textwidth]{%
@@ -158,7 +160,7 @@ s_n = \sqrt{s_n^2} = 6.69
 \thispagestyle{empty} %Inizio risultato test
 \newgeometry{margin=1cm}
 \subsection{Risultato del Test}
-
+Ora dunque passiamo ad analizzare, seguendo le stesse procedure di prima, quanto ottenuto in totale da ciascuno studente, ossia il voto del test come somma dei voti delle tre sezioni.
 \begin{center}
 \begin{tabular}{|c|c|c|}
   \hline
@@ -182,9 +184,9 @@ s_n = \sqrt{s_n^2} = 6.69
   \includegraphics[scale=0.57]{dati-Test-box}
   \caption{Test}
 \end{figure}
+Ancora una volta notiamo che i valori sono grossomodo accentrati intorno al valor medio (50,82) e da lì scendono “a campana”.
 \restoregeometry
 \clearpage
-
 \thispagestyle{empty} %Inizio risultato finale
 \newgeometry{margin=1cm}
 \subsection{Voto Finale}
@@ -212,6 +214,7 @@ s_n = \sqrt{s_n^2} = 6.69
   \includegraphics[scale=0.57]{dati-Totale-box}
   \caption{Totale}
 \end{figure}
+Ci accorgiamo che la media campionaria dei voti finali del test è decisamente superiore alla media ottenuta come semplice risultato del test (67,70 $>$ 50,82). Ne possiamo dedurre che il voto di maturità, complessivamente, ha inciso in modo positivo sulla riuscita del test: esso conta infatti per il 60\%  nella determinazione del voto finale! Comunque più avanti studieremo meglio, mediante un test statistico, la correlazione fra i due risultati.
 \restoregeometry
 \clearpage
 
