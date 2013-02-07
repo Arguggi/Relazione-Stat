@@ -18,3 +18,5 @@ Immagini
 *.fdb_latexmk
 *.aux
 *.toc
+*.lof
+*.lot
