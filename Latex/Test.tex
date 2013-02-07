@@ -1,6 +1,6 @@
 \section{Statistica Inferenziale}
 Abbiamo deciso inoltre di eseguire dei test statistici per verificare la veridicità o meno di alcune ipotesi che ci sembrava sensato fare: in particolare, abbiamo voluto verificare se ci fosse dipendenza tra il voto del diploma e il risultato del test e una eventuale correlazione tra il risultato nella parte di matematica e quello della parte di logica; in entrambi i casi abbiamo considerato l’assenza di correlazione tra i risultati come la nostra ipotesi di partenza.
-
+Il test che abbiamo deciso di utilizzare per la verifica delle ipotesi è il test chi quadrato di Pearson con alfa=0,001.
 \subsection{Test del $\chi^2$ di Indipendenza}
 
 \[
@@ -24,6 +24,7 @@ X^2 = \sum_{i=1}^g\sum_{j=1}^k\frac{(n_{ij} - E_{ij})^2}{E_{ij}}
   }
 \end{center}
 
+Partendo dall’ipotesi nulla, che non vede una dipendenza tra i risultati conseguiti alle scuole superiori e il test d’ammissione, ed eseguendo la verifica tramite i procedimenti descritti otteniamo i seguenti risultati, ai quali abbiamo affiancato il valore chi quadrato ricavato dalle tabelle.
 
 \begin{center}
   \makebox[\textwidth]{
@@ -41,7 +42,7 @@ X^2 = \sum_{i=1}^g\sum_{j=1}^k\frac{(n_{ij} - E_{ij})^2}{E_{ij}}
   }
 \end{center}
 
-In questo caso vediamo che i risultati ottenuti consentono di rifiutare l’ipotesi nulla, evidenziando quindi una relazione di dipendenza tra i risultati in questione, avendo come conseguenza che un punteggio alto all’uscita dalle scuole comporterà con buona probabilità un punteggio alto nel test di ammissione, e di conseguenza un voto totale migliore.
+In questo caso vediamo che i risultati ottenuti, anche per valori di alfa così bassi, consentono di rifiutare l’ipotesi nulla, evidenziando quindi una relazione di dipendenza tra i risultati in questione, negli intervalli presi in cosiderazione, avendo come conseguenza che un punteggio alto all’uscita dalle scuole comporterà con buona probabilità un punteggio alto nel test di ammissione, e di conseguenza un voto totale migliore.
 
 \subsubsection{$\chi^2$ Logica-Matematica}
 
@@ -59,7 +60,7 @@ In questo caso vediamo che i risultati ottenuti consentono di rifiutare l’ipot
   }
 \end{center}
 
-Per quanto riguarda l’analisi di una possibile correlazione tra i punteggi di logica e matematica, siamo anche qui partiti dall’ipotesi nulla di assenza di connessione, conseguendo questi risultati:
+Per quanto riguarda l’analisi di una possibile correlazione tra i punteggi di logica e matematica, siamo anche qui partiti dall’ipotesi nulla di assenza di connessione, ponendo la divisione ad un punteggio di 20/33 che corrisponde al 60\% e quindi alla condizione della sufficienza in entrambe le sezioni, conseguendo questi risultati:
 
 \begin{center}
   \makebox[\textwidth]{
