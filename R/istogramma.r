@@ -3,7 +3,6 @@ crea_istogramma <- function(dataframe,colonna,dimensioni,nome) {
   percorso <- "../Immagini/"
   nome_immagine <- paste(percorso,nome,"-",colonna,"-ist.pdf",sep="")
   pdf(nome_immagine)
->>>>>>> pdf-latex
 
   grafico <- ggplot(dataframe,aes_string(x=colonna),geom="histogram")
   grafico <- grafico + geom_histogram(aes(fill=..count..)) + scale_fill_gradient("Osservazioni")
